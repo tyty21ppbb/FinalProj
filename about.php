@@ -1,90 +1,171 @@
 <?php
 session_start();
 
-$title       = "ChairHive - About";
+$title = "ChairHive - About";
 $currentPage = "about";
 
-$groupMembers = array(
-    array("name" => "Joschka Atabelo",   "role" => "Project Manager"),
-    array("name" => "Art Panulde",     "role" => "Frontend Developer"),
-    array("name" => "Jose Soriano",      "role" => "Backend Developer"),
-    array("name" => "Carl Vitalista",        "role" => "UI / UX Designer"),
-   
-);
+$groupMembers = [
+    [
+        "name" => "Joschka Atabelo",
+        "role" => "Project Manager",
+        "description" => "Leads the team, coordinates project tasks, and ensures deadlines are met."
+    ],
+    [
+        "name" => "Art Panulde",
+        "role" => "Frontend Developer",
+        "description" => "Develops the website interface and creates a responsive user experience."
+    ],
+    [
+        "name" => "Jose Soriano",
+        "role" => "Backend Developer",
+        "description" => "Builds the PHP logic, database integration, and system functionality."
+    ],
+    [
+        "name" => "Carl Vitalista",
+        "role" => "UI / UX Designer",
+        "description" => "Designs the overall look of ChairHive and improves usability."
+    ]
+];
 
-require('include/header.php');
+require("include/header.php");
 ?>
 
-<!-- Page Head -->
 <div class="cv-page-head">
     <div class="cv-page-head-inner">
         <h1>About ChairHive</h1>
-        <p>Our company, our focus, and the team behind this project.</p>
+        <p>Premium seating solutions designed for comfort, productivity, and style.</p>
     </div>
 </div>
 
-<div style="max-width:1200px;margin:0 auto;padding:56px 40px 80px;">
+<section class="container py-5">
 
-    <!-- Company Info -->
-    <div class="row g-4 mb-5">
-        <div class="col-md-6">
-            <div class="cv-card h-100">
-                <p class="cv-section-label">Our Story</p>
-                <h3 class="cv-card-title" style="font-size:1.4rem;">One focus: the chair you sit in.</h3>
-                <p class="text-muted" style="line-height:1.75;font-size:0.92rem;">
-                    ChairHive was built around a single idea &mdash; the chair you sit in matters more than almost any other
-                    piece of office equipment. We specialize exclusively in seating, so every product we carry is chosen
-                    for comfort, durability, and proper ergonomic support.
-                </p>
-                <p class="text-muted" style="line-height:1.75;font-size:0.92rem;">
-                    Whether you need an all-day ergonomic chair, a high-back executive seat for the boardroom,
-                    a gaming chair for late sessions, or simple guest seating &mdash; ChairHive has a chair built for the job.
-                </p>
-            </div>
+    <!-- About -->
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+            <span class="cv-section-label">ABOUT US</span>
+
+            <h2 class="fw-bold mb-4">
+                We Believe Great Work Starts With A Great Chair.
+            </h2>
+
+            <p class="text-secondary mb-3">
+                ChairHive specializes in ergonomic, executive, gaming,
+                visitor, and drafting chairs carefully selected for
+                comfort, quality, and long-term durability.
+            </p>
+
+            <p class="text-secondary">
+                Our goal is to provide seating solutions that improve
+                productivity, support proper posture, and enhance every
+                workspace.
+            </p>
+
         </div>
-        <div class="col-md-6">
-            <div class="cv-card h-100">
-                <p class="cv-section-label">What We Offer</p>
-                <h3 class="cv-card-title" style="font-size:1.4rem;">Five categories of seating.</h3>
-                <ul style="color:#475569;font-size:0.92rem;line-height:2;padding-left:18px;">
-                    <li><strong>Ergonomic Chairs</strong> &mdash; Mesh backs, lumbar support, all-day comfort</li>
-                    <li><strong>Executive Chairs</strong> &mdash; Leather seating for offices and boardrooms</li>
-                    <li><strong>Gaming Chairs</strong> &mdash; Racing-style with headrests and footrests</li>
-                    <li><strong>Visitor & Guest Chairs</strong> &mdash; Stackable, waiting-room, and bench seating</li>
-                    <li><strong>Stools & Drafting Chairs</strong> &mdash; Height-adjustable for standing desks and counters</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
-    <!-- Team Section -->
-    <div class="mb-2">
-        <p class="cv-section-label">The Team</p>
-        <h2 class="cv-section-title">Meet CyberVision</h2>
-        <p class="cv-section-sub">The group behind this Web Development final project.</p>
-    </div>
+        <div class="col-lg-6">
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <?php foreach ($groupMembers as $member):
-            $nameParts = explode(' ', $member['name']);
-            $initials  = '';
-            foreach ($nameParts as $part) {
-                $initials .= strtoupper(substr($part, 0, 1));
-            }
-        ?>
-            <div class="col">
-                <div class="cv-card text-center h-100">
-                    <div class="rounded-circle text-white fw-bold d-flex align-items-center justify-content-center mx-auto mb-3"
-                         style="width:62px;height:62px;font-size:1.15rem;background-color:#0E7490;">
-                        <?= htmlspecialchars($initials) ?>
+            <div class="cv-card p-4">
+
+                <h4 class="mb-4">Why Choose ChairHive?</h4>
+
+                <div class="row text-center">
+
+                    <div class="col-6 mb-4">
+                        <h2 class="text-primary fw-bold">5</h2>
+                        <p>Chair Categories</p>
                     </div>
-                    <h6 class="fw-bold mb-1"><?= htmlspecialchars($member['name']) ?></h6>
-                    <p class="text-muted small mb-0"><?= htmlspecialchars($member['role']) ?></p>
+
+                    <div class="col-6 mb-4">
+                        <h2 class="text-primary fw-bold">100%</h2>
+                        <p>Quality Checked</p>
+                    </div>
+
+                    <div class="col-6">
+                        <h2 class="text-primary fw-bold">4</h2>
+                        <p>Team Members</p>
+                    </div>
+
+                    <div class="col-6">
+                        <h2 class="text-primary fw-bold">24/7</h2>
+                        <p>Project Support</p>
+                    </div>
+
                 </div>
+
             </div>
-        <?php endforeach; ?>
+
+        </div>
+
     </div>
 
-</div>
+</section>
 
-<?php require('include/footer.php'); ?>
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="cv-section-label">OUR TEAM</span>
+
+        <h2 class="fw-bold">Meet CyberVision</h2>
+
+        <p class="text-secondary">
+            The passionate developers behind the ChairHive project.
+        </p>
+
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+        <?php foreach($groupMembers as $member):
+
+            $parts = explode(" ", $member['name']);
+
+            $initials = "";
+
+            foreach($parts as $p){
+                $initials .= strtoupper(substr($p,0,1));
+            }
+
+        ?>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="cv-card text-center team-card p-4 h-100">
+
+                <div class="team-avatar">
+
+                    <?= $initials ?>
+
+                </div>
+
+                <h5 class="fw-bold mt-4">
+
+                    <?= htmlspecialchars($member['name']) ?>
+
+                </h5>
+
+                <div class="text-primary fw-semibold mb-3">
+
+                    <?= htmlspecialchars($member['role']) ?>
+
+                </div>
+
+                <p class="text-secondary small">
+
+                    <?= htmlspecialchars($member['description']) ?>
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <?php endforeach; ?>
+
+    </div>
+
+</section>
+
+<?php require("include/footer.php"); ?>
