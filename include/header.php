@@ -18,8 +18,9 @@ $logoSrc    = "images/Cybervisionlogo.png";
 <!-- Group Bar - appears on ALL pages -->
 <div class="cv-group-bar">
     <?php if ($logoExists): ?>
-        <img src="<?= $logoSrc ?>" alt="CyberVision">
-    <?php endif; ?>
+    <img src="<?= $logoSrc ?>" alt="CyberVision">
+<?php endif; ?>
+
     <strong>CyberVision</strong> 
 </div>
 

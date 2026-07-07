@@ -4,7 +4,7 @@
    ============================================================ */
 
 :root {
-    --cv-primary:  #013746;
+    --cv-primary:  #05475a;
     --cv-hover:    #0891B2;
     --cv-accent:   #06B6D4;
     --cv-dark:     #020E1F;
@@ -123,6 +123,20 @@ a:hover { color: var(--cv-hover); }
     min-width: 18px;
     text-align: center;
 }
+.cv-header-brand-img {
+    height: 400px;   /* adjust size */
+    width: auto;    /* keep proportions */
+    margin-bottom: 100px;
+    display: block;
+}
+
+.cv-footer-brand-img {
+    height: 400px;   /* adjust size */
+    width: auto;    /* keep proportions */
+    margin-bottom: 100px;
+    display: block;
+}
+
 .btn-nav-login {
     border: 1.5px solid var(--cv-primary);
     color: var(--cv-primary);
@@ -481,6 +495,48 @@ textarea.cv-form-control { resize: vertical; min-height: 80px; }
 .cv-footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); max-width: 1200px; margin: 0 auto; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
 .cv-footer-bottom p { font-size: 0.76rem; color: rgba(255,255,255,0.3); margin: 0; }
 .cv-disclaimer { font-size: 0.74rem; color: rgba(255,255,255,0.3); text-align: right; }
+
+.site-logo {
+    width: 800px;   /* adjust size */
+    height: 800px;   /* keeps proportions */
+}
+
+/* ---- Group Bar Logo (smaller) ---- */
+.cv-group-bar img {
+    height: 20px;   /* small logo for top strip */
+    width: auto;
+    vertical-align: -2px;
+    margin-right: 6px;
+}
+
+/* ---- Navbar Logo (bigger) ---- */
+.cv-navbar-brand img {
+    height: 70px;   /* larger logo in header */
+    width: auto;
+}
+
+/* ---- General Site Logo ---- */
+.site-logo {
+    height: 800px;   /* default size for main logo */
+    width: auto;
+}
+
+/* ---- Footer Logo ---- */
+.cv-footer-brand-img {
+    height: 400px;
+    width: auto;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* ---- Responsive Adjustments ---- */
+@media (max-width: 640px) {
+    .cv-group-bar img { height: 16px; }
+    .cv-navbar-brand img { height: 50px; }
+    .site-logo { height: 500px; }
+    .cv-footer-brand-img { height: 32px; }
+}
+
 
 /* ---- Responsive ---- */
 @media (max-width: 991px) {
