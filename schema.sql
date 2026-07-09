@@ -1,8 +1,3 @@
--- =====================================================================
--- ChairHive Database Schema
--- Import this in phpMyAdmin before running the website.
--- =====================================================================
-
 CREATE DATABASE IF NOT EXISTS chairhive CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE chairhive;
 
@@ -70,13 +65,13 @@ CREATE TABLE audit_log (
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Default admin: admin@chairhive.test / Admin123!
+
 INSERT INTO users (full_name, email, password_hash, address, contact_number, role, is_verified, is_active)
 VALUES ('System Administrator','admin@chairhive.test',
         '$2b$04$WXt7lZsc8hCdpftGnTiz3uahe1xLgn3JwYVKMr9G/JIhOatP.iLRa',
         'ChairHive Head Office, Quezon City','09170000000','admin',1,1);
 
--- Starter chair catalog
+
 INSERT INTO products (name, category, description, price, stock_qty) VALUES
 ('Ergonomic Mesh Chair',        'Ergonomic Chairs',         'Breathable mesh back with adjustable lumbar support and armrests.',            4250.00, 25),
 ('ErgoFlex Pro Chair',          'Ergonomic Chairs',         'Synchro-tilt mechanism with adjustable headrest and seat depth.',              6800.00, 14),

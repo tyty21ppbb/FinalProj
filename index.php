@@ -94,13 +94,13 @@ require('include/header.php');
             <div class="col-md-6">
                 <p class="cv-section-label">Our Focus</p>
                 <h2 class="cv-section-title">One Product.<br>Done Right.</h2>
-                <p class="text-muted" style="line-height:1.75;">We sell chairs and only chairs &mdash; because doing one thing well is better than doing everything halfway. Whether you're outfitting a home office or a 50-person workspace, ChairHive has the seating for it.</p>
+                <p class="cv-section-sub">We sell chairs and only chairs &mdash; because doing one thing well is better than doing everything halfway. Whether you're outfitting a home office or a 50-person workspace, ChairHive has the seating for it.</p>
                 <a href="store.php" class="btn-cv mt-2">Browse the Store <i class="bi bi-arrow-right"></i></a>
             </div>
             <div class="col-md-6">
                 <p class="cv-section-label">The Team</p>
                 <h2 class="cv-section-title">Built by CyberVision</h2>
-                <p class="text-muted" style="line-height:1.75;">This storefront was built by CyberVision as a final project for our Web Development class. Register an account, browse the store, add chairs to your cart, and go through checkout &mdash; the full flow is functional, just not for real purchases.</p>
+                <p class="cv-section-sub">This storefront was built by CyberVision as a final project for our Web Development class. Register an account, browse the store, add chairs to your cart, and go through checkout &mdash; the full flow is functional, just not for real purchases.</p>
                 <a href="about.php" class="btn-cv-outline mt-2">Meet the Team</a>
             </div>
         </div>

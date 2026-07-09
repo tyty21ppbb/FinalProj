@@ -28,7 +28,6 @@ mysqli_close($conn);
 require('include/header.php');
 ?>
 
-<!-- Page Heading -->
 <div class="cv-page-head">
     <div class="cv-page-head-inner">
         <h1><i class="bi bi-shop"></i> Store</h1>
@@ -46,8 +45,30 @@ require('include/header.php');
         </div>
     <?php endif; ?>
 
+    <div class="cv-toolbar">
+        <div class="cv-cat-tabs">
+            <button type="button" class="cv-cat-tab active" data-target="all">All</button>
+            <?php foreach ($grouped as $categoryName => $items): ?>
+                <button type="button" class="cv-cat-tab" data-target="<?= htmlspecialchars(urlencode($categoryName)) ?>">
+                    <?= htmlspecialchars($categoryName) ?>
+                </button>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="cv-sort-bar">
+            <label for="cv-sort-select">Sort by</label>
+            <select id="cv-sort-select">
+                <option value="default">Default</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name-asc">Name: A to Z</option>
+                <option value="name-desc">Name: Z to A</option>
+            </select>
+        </div>
+    </div>
+
     <?php foreach ($grouped as $categoryName => $items): ?>
-        <div class="mb-5" id="<?= urlencode($categoryName) ?>">
+        <div class="mb-5 cv-cat-section" id="<?= urlencode($categoryName) ?>" data-category="<?= htmlspecialchars(urlencode($categoryName)) ?>">
             <div class="cv-cat-heading">
                 <?php $icon = isset($catIcons[$categoryName]) ? $catIcons[$categoryName] : 'bi-person-workspace'; ?>
                 <div class="cv-category-icon" style="width:36px;height:36px;font-size:1rem;">
@@ -60,14 +81,23 @@ require('include/header.php');
                 <?php foreach ($items as $p):
                     $outOfStock = (int)$p['stock_qty'] <= 0;
                 ?>
-                    <div class="cv-product-card">
-                        <div class="cv-product-thumb">
-                            <?php $icon = isset($catIcons[$categoryName]) ? $catIcons[$categoryName] : 'bi-person-workspace'; ?>
-                            <i class="bi <?= $icon ?>"></i>
-                        </div>
+                    <div class="cv-product-card" data-price="<?= (float)$p['price'] ?>" data-name="<?= htmlspecialchars($p['name']) ?>">
+                        <?php $icon = isset($catIcons[$categoryName]) ? $catIcons[$categoryName] : 'bi-person-workspace'; ?>
+                        <a href="product.php?id=<?= (int)$p['id'] ?>" class="cv-product-link">
+                            <div class="cv-product-thumb">
+                                <?php if (!empty($p['image'])): ?>
+                                    <img src="<?= htmlspecialchars($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                    <i class="bi <?= $icon ?>" style="display:none;"></i>
+                                <?php else: ?>
+                                    <i class="bi <?= $icon ?>"></i>
+                                <?php endif; ?>
+                            </div>
+                        </a>
                         <div class="cv-product-body">
                             <div class="cv-product-cat"><?= htmlspecialchars($p['category']) ?></div>
-                            <div class="cv-product-name"><?= htmlspecialchars($p['name']) ?></div>
+                            <a href="product.php?id=<?= (int)$p['id'] ?>" class="cv-product-link">
+                                <div class="cv-product-name"><?= htmlspecialchars($p['name']) ?></div>
+                            </a>
                             <div class="cv-product-desc"><?= htmlspecialchars($p['description']) ?></div>
 
                             <?php if ($outOfStock): ?>
@@ -99,5 +129,64 @@ require('include/header.php');
     <?php endforeach; ?>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var tabs = document.querySelectorAll('.cv-cat-tab');
+    var sections = document.querySelectorAll('.cv-cat-section');
+    var sortSelect = document.getElementById('cv-sort-select');
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            tabs.forEach(function (t) { t.classList.remove('active'); });
+            tab.classList.add('active');
+
+            var target = tab.getAttribute('data-target');
+            sections.forEach(function (section) {
+                if (target === 'all' || section.getAttribute('data-category') === target) {
+                    section.style.display = '';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    sortSelect.addEventListener('change', function () {
+        var value = sortSelect.value;
+
+        sections.forEach(function (section) {
+            var grid = section.querySelector('.cv-product-grid');
+            var cards = Array.prototype.slice.call(grid.querySelectorAll('.cv-product-card'));
+
+            cards.sort(function (a, b) {
+                if (value === 'price-asc') {
+                    return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+                }
+                if (value === 'price-desc') {
+                    return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
+                }
+                if (value === 'name-asc') {
+                    return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+                }
+                if (value === 'name-desc') {
+                    return b.getAttribute('data-name').localeCompare(a.getAttribute('data-name'));
+                }
+                return 0;
+            });
+
+            if (value === 'default') {
+                cards.sort(function (a, b) {
+                    return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+                });
+            }
+
+            cards.forEach(function (card) {
+                grid.appendChild(card);
+            });
+        });
+    });
+});
+</script>
 
 <?php require('include/footer.php'); ?>
