@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$title = "ChairHive - About";
+$title = "CyberVision - About";
 $currentPage = "about";
 
 $groupMembers = [
@@ -36,7 +36,7 @@ require("include/header.php");
 
 <div class="cv-page-head">
     <div class="cv-page-head-inner">
-        <h1>About ChairHive</h1>
+        <h1>About CyberVision</h1>
         <p>Premium seating solutions designed for comfort, productivity, and style.</p>
     </div>
 </div>
@@ -55,7 +55,7 @@ require("include/header.php");
             </h2>
 
             <p class="text-secondary mb-3">
-                ChairHive specializes in ergonomic, executive, gaming,
+                CyberVision specializes in ergonomic, executive, gaming,
                 visitor, and drafting chairs carefully selected for
                 comfort, quality, and long-term durability.
             </p>
@@ -72,12 +72,12 @@ require("include/header.php");
 
             <div class="cv-card p-4">
 
-                <h4 class="mb-4">Why Choose ChairHive?</h4>
+                <h4 class="mb-4">Why Choose CyberVision?</h4>
 
                 <div class="row text-center">
 
                     <div class="col-6 mb-4">
-                        <h2 class="text-primary fw-bold">5</h2>
+                        <h2 class="text-primary fw-bold">3</h2>
                         <p>Chair Categories</p>
                     </div>
 

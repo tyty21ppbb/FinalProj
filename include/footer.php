@@ -7,7 +7,7 @@ $logoExists = file_exists(__DIR__ . "/../images/Cybervisionlogo.png");
             <?php if ($logoExists): ?>
                 <img src="images/Cybervisionlogo.png" alt="CyberVision" class="cv-footer-brand-img" style="height:34px;width:auto;margin-bottom:10px;display:block;">
             <?php endif; ?>
-            <div class="cv-footer-brand-name">ChairHive</div>
+            <div class="cv-footer-brand-name">CyberVision</div>
             <p>Office chairs built for the way you sit, work, and focus &mdash; ergonomic, executive, gaming, and more.</p>
         </div>
         <div>
@@ -35,7 +35,7 @@ $logoExists = file_exists(__DIR__ . "/../images/Cybervisionlogo.png");
         </div>
     </div>
     <div class="cv-footer-bottom">
-        <p>&copy; <?= date('Y') ?> ChairHive &mdash; CyberVision</p>
+        <p>&copy; <?= date('Y') ?> CyberVision</p>
         <p class="cv-disclaimer">
             <strong>Disclaimer:</strong> This website was created for educational purposes only and is a requirement for our final project.
             No real products are sold and no real transactions are processed.
